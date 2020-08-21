@@ -14,6 +14,11 @@ Vue.use(VueRouter)
     path: '/dashboard',
     name: 'dashboard',
     component: () => import(/* webpackChunkName: "about" */ '../views/Dashboard.vue')
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import(/* webpackChunkName: "register" */ '../views/RegisterUser.vue')
   }
 ]
 
