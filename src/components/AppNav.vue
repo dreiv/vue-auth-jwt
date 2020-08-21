@@ -6,12 +6,21 @@
     <router-link to="/dashboard">
       Dashboard
     </router-link>
+    <router-link v-if="!loggedIn" to="/login" class="button">
+      Login
+    </router-link>
   </div>
 </template>
 
 <script>
-export default {}
+import { authComputed } from '../store/helpers.js'
+export default {
+  computed: {
+    ...authComputed
+  }
+}
 </script>
+
 
 <style lang="scss" scoped>
 #nav {
