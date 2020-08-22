@@ -15,6 +15,8 @@
         Login
       </button>
 
+      <p>{{ error }}</p>
+
       <router-link :to="{ name: 'register'}">
         Don't have an account? Register.
       </router-link>
@@ -27,7 +29,8 @@
     data() {
       return {
         email: '',
-        password: ''
+        password: '',
+        error: null
       }
     },
     methods: {
@@ -39,6 +42,9 @@
           })
           .then(() => {
             this.$router.push({ name: 'dashboard' })
+          })
+          .catch(error => {
+            this.error = error.response.data
           })
       }
     }
